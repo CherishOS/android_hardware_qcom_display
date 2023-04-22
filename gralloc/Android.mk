@@ -31,6 +31,10 @@ else ifeq ($(TARGET_USES_YCRCB_VENUS_CAMERA_PREVIEW),true)
     LOCAL_CFLAGS              += -DUSE_YCRCB_CAMERA_PREVIEW_VENUS
 endif
 
+ifeq ($(TARGET_NEEDS_RAW10_BUFFER_FIX),true)
+LOCAL_CFLAGS                  += -DRAW10_BUFFER_FIX
+endif
+
 LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps) $(kernel_deps)
 LOCAL_SRC_FILES               := gr_ion_alloc.cpp \
                                  gr_allocator.cpp \
